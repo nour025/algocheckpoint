@@ -1,0 +1,45 @@
+//the insertion sort//
+ the algorithm of sorting
+
+PROCEDURE insertion_sort(VAR tab : ARRAY_OF INTEGER)
+VAR
+   i, j, eleminsert, n : INTEGER;
+BEGIN
+   n := tab.length;
+   FOR i FROM 1 TO n-1 STEP 1 DO
+       eleminsert := tab[i]; // current element inserted
+       j := i - 1;  // decrementation
+       
+       // insert elements and put them to the right side 
+
+       WHILE (j >= 0 AND tab[j] > eleminsert) DO
+           tab[j+1] := tab[j];
+           j := j - 1;
+       END_WHILE
+       
+       // Insert the element in its correct position
+       tab[j+1] := eleminsert;
+   END_FOR
+END
+
+
+// the implementation of the program in javascript//
+
+
+function insertionSort(arr) {
+  let n = arr.length;
+
+  for (let i = 1; i < n; i++) {
+    let eleminsert = arr[i]; // Element to be inserted
+    let j = i - 1;
+
+    while (j >= 0 && arr[j] > eleminsert) {
+      arr[j + 1] = arr[j];
+      j = j - 1;
+    }
+
+    arr[j + 1] = eleminsert;
+  }
+
+  return arr;
+}
